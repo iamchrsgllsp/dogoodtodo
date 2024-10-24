@@ -1,5 +1,5 @@
 from functools import wraps
-from flask import Flask, request, redirect
+from flask import Flask, request, redirect, render_template
 
 app = Flask(__name__)
 
@@ -13,7 +13,7 @@ def check_dart(f):
 
 @app.route('/')
 def hello_world():
-    return 'Download our Android App'
+    return render_template("home.html")
 
 @app.route('/api/<call>')
 @check_dart
