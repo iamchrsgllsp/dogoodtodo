@@ -3,7 +3,7 @@ from flask import Flask, request, redirect, render_template, jsonify
 
 app = Flask(__name__)
 
-datalist = [{"name":"get groceries","location":"lurgan","price":50},{"name":"test2","location":"lurgan","price":50}]
+datalist = [{"name":"1st task","description":"testing out functionality","location":"Lurgan","price":50}]
 
 def check_dart(f):
     @wraps(f)
