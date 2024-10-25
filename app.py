@@ -20,14 +20,10 @@ def checker():
     print(request.headers)
     return {"data":200}
 
-@app.route('/api/<call>')
+@app.route('/api/tasks')
 @check_dart
 def apicall(call):
-    match call:
-        case "create":
-            return "create route"
-        case _:
-            return "unknown call"
+    return {"data":{"task":"test","location":"lurgan","price":"£50"}}
 
 @app.route('/api/post/<task>')
 @check_dart
