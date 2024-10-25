@@ -22,7 +22,7 @@ def checker():
 
 @app.route('/api/tasks')
 @check_dart
-def apicall(call):
+def apicall():
     return {"data":{"task":"test","location":"lurgan","price":"£50"}}
 
 @app.route('/api/post/<task>')
