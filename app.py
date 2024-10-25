@@ -33,7 +33,7 @@ def taskpost(task):
     recvd = request.json
     print(recvd['name'])
     datalist.append(recvd)
-    returnText = f"{task} has been created"
+    returnText = f"{recvd['name']} has been created"
     return {"data": returnText}
 
 if __name__ == "__main__":
