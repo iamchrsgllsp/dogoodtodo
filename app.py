@@ -3,6 +3,8 @@ from flask import Flask, request, redirect, render_template, jsonify
 
 app = Flask(__name__)
 
+datalist = [{"name":"get groceries","location":"lurgan","price":50},{"name":"test2","location":"lurgan","price":50}]
+
 def check_dart(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -23,11 +25,14 @@ def checker():
 @app.route('/api/tasks')
 @check_dart
 def apicall():
-    return jsonify([{"name":"test","location":"lurgan","price":50},{"name":"test2","location":"lurgan","price":50}])
+    return jsonify(datalist)
 
-@app.route('/api/post/<task>')
+@app.route('/api/post/<task>', methods=["POST"])
 @check_dart
 def taskpost(task):
+    recvd = request.json
+    print(recvd['name'])
+    datalist.append(recvd)
     returnText = f"{task} has been created"
     return {"data": returnText}
 
