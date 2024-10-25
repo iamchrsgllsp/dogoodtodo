@@ -23,7 +23,7 @@ def checker():
 @app.route('/api/tasks')
 @check_dart
 def apicall():
-    return jsonify([{"task":"test","location":"lurgan","price":"£50"}])
+    return jsonify([{"name":"test","location":"lurgan","price":50},{"name":"test2","location":"lurgan","price":50}])
 
 @app.route('/api/post/<task>')
 @check_dart
