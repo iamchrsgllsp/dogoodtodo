@@ -39,7 +39,7 @@ def taskpost(task):
 @app.route('/api/user/active')
 @check_dart
 def getActive():
-    return {"data":{"task":123,"isStarted":True}}
+    return {"data":{"task":123,"isStarted":True,"isCompleted":False}}
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5000)
