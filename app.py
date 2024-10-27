@@ -36,5 +36,10 @@ def taskpost(task):
     returnText = f"{recvd['name']} has been created"
     return {"data": returnText}
 
+@app.route('/api/user/active')
+@check_dart
+def getActive():
+    return {"data":{"task":123,"isStarted":True}}
+
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5000)
