@@ -3,6 +3,9 @@ from flask import Flask, request, redirect, render_template, jsonify
 
 app = Flask(__name__)
 
+
+testStart = False
+testComplete = False
 datalist = [{"name":"1st task","description":"testing out functionality","location":"Lurgan","price":50}]
 
 def check_dart(f):
@@ -36,10 +39,22 @@ def taskpost(task):
     returnText = f"{recvd['name']} has been created"
     return {"data": returnText}
 
+@app.route('/api/flagswitch')
+def flagswitch():
+    if testStart == False:
+        testStart = True
+    else:
+        testStart = False
+    if testComplete == False:
+        testComplete = True
+    else:
+        testComplete = False
+    return {"data":"Flags changed"}
+
 @app.route('/api/user/active')
 @check_dart
 def getActive():
-    return {"data":{"task":123,"isStarted":True,"isCompleted":False}}
+    return {"data":{"task":123,"isStarted":testStart,"isCompleted":testComplete}}
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5000)
