@@ -41,6 +41,8 @@ def taskpost(task):
 
 @app.route('/api/flagswitch')
 def flagswitch():
+    global testComplete
+    global testStart
     if testStart == False:
         testStart = True
     else:
