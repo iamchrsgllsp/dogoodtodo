@@ -39,20 +39,16 @@ def taskpost(task):
     returnText = f"{recvd['name']} has been created"
     return {"data": returnText}
 
-@app.route('/api/flagswitch')
+@app.route('/api/flagswitch', methods=['GET'])
 def flagswitch():
     global testComplete
     global testStart
-    if testStart == False:
-        testStart = True
-    else:
-        testStart = False
-    if testComplete == False:
-        testComplete = True
-    else:
-        testComplete = False
-    
-    return {"data":f"{testStart} and {testComplete}"}
+
+    # Toggle the flags
+    testStart = not testStart
+    testComplete = not testComplete
+
+    return {"data": f"{testStart} and {testComplete}"}
 
 @app.route('/api/user/active')
 @check_dart
