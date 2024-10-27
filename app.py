@@ -51,7 +51,8 @@ def flagswitch():
         testComplete = True
     else:
         testComplete = False
-    return {"data":"Flags changed"}
+    
+    return {"data":f"{testStart} and {testComplete}"}
 
 @app.route('/api/user/active')
 @check_dart
