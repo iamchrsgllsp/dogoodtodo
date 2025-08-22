@@ -61,7 +61,7 @@ def taskpost(task):
     datalist.append(recvd)
     returnText = f"{recvd['name']} has been created"
     task = (
-        "chris",
+        recvd["username"],
         recvd["name"],
         recvd["description"],
         recvd["location"],
