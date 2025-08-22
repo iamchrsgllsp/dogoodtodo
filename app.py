@@ -85,6 +85,7 @@ def getacceptedtaskes():
 @check_dart
 def accepttask():
     resp = request.json
+    print(resp["name"])
     accept_task(resp["taskid"], resp["name"])
     return {"data": "yes"}
 
